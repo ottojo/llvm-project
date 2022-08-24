@@ -10,6 +10,7 @@
 # Nested build directory.
 #==============================================================================#
 /build
+cmake-build-debug-clang
 
 #==============================================================================#
 # Explicit files to ignore (only matches one).

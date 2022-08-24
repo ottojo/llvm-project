@@ -39,6 +39,7 @@
 #include "MultipleStatementMacroCheck.h"
 #include "NoEscapeCheck.h"
 #include "NotNullTerminatedResultCheck.h"
+#include "NowFunctionCheck.h"
 #include "ParentVirtualCallCheck.h"
 #include "PosixReturnCheck.h"
 #include "RedundantBranchConditionCheck.h"
@@ -132,6 +133,8 @@ public:
         "bugprone-move-forwarding-reference");
     CheckFactories.registerCheck<MultipleStatementMacroCheck>(
         "bugprone-multiple-statement-macro");
+    CheckFactories.registerCheck<NowFunctionCheck>(
+        "bugprone-now-function");
     CheckFactories.registerCheck<RedundantBranchConditionCheck>(
         "bugprone-redundant-branch-condition");
     CheckFactories.registerCheck<cppcoreguidelines::NarrowingConversionsCheck>(

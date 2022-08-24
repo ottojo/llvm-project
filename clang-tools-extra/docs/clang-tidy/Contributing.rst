@@ -223,7 +223,7 @@ can further inspect them and report diagnostics.
 `clang-tidy/google/ExplicitConstructorCheck.h
 <https://github.com/llvm/llvm-project/blob/main/clang-tools-extra/clang-tidy/google/ExplicitConstructorCheck.h>`_
 and `clang-tidy/google/ExplicitConstructorCheck.cpp
-<https://reviews.llvm.org/diffusion/L/browse/clang-tools-extra/trunk/clang-tidy/google/ExplicitConstructorCheck.cpp>`_).
+<https://github.com/llvm/llvm-project/blob/main/clang-tools-extra/clang-tidy/google/ExplicitConstructorCheck.cpp>`_).
 
 If you need to interact with macros or preprocessor directives, you will want to
 override the method ``registerPPCallbacks``.  The ``add_new_check.py`` script
