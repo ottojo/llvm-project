@@ -94,6 +94,7 @@ add_clang_library(clangStaticAnalyzerCheckers
   PointerSortingChecker.cpp
   PointerSubChecker.cpp
   PthreadLockChecker.cpp
+  PtrToMutableChecker.cpp
   cert/PutenvWithAutoChecker.cpp
   RetainCountChecker/RetainCountChecker.cpp
   RetainCountChecker/RetainCountDiagnostics.cpp

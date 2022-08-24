@@ -799,6 +799,9 @@ def SmartPtrChecker: Checker<"SmartPtr">,
   Dependencies<[SmartPtrModeling]>,
   Documentation<HasDocumentation>;
 
+def PtrToMutableChecker : Checker<"PtrToMutable">,
+  HelpText<"Checks mutable smart pointers.">,
+  Documentation<NotDocumented>;
 } // end: "alpha.cplusplus"
 
 

@@ -3962,6 +3962,13 @@ def ReleaseHandle : InheritableParamAttr {
   let Documentation = [ReleaseHandleDocs];
 }
 
+def PtrToMutable : InheritableParamAttr {
+  let Spellings = [Clang<"ptr_to_mutable">];
+  let Subjects = SubjectList<[ParmVar]>;
+  let Documentation = [InternalOnly];
+  let SimpleHandler = 1;
+}
+
 def DiagnoseAsBuiltin : InheritableAttr {
   let Spellings = [Clang<"diagnose_as_builtin">];
   let Args = [DeclArgument<Function, "Function">,

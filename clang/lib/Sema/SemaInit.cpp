@@ -2166,7 +2166,7 @@ void InitListChecker::CheckStructUnionTypes(
 
       // Disable check for missing fields when designators are used.
       // This matches gcc behaviour.
-      CheckForMissingFields = false;
+      CheckForMissingFields = true;
       continue;
     }
 
