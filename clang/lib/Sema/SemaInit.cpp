@@ -2193,10 +2193,6 @@ void InitListChecker::CheckStructUnionTypes(
       }
 
       InitializedSomething = true;
-
-      // Disable check for missing fields when designators are used.
-      // This matches gcc behaviour.
-      CheckForMissingFields = false;
       continue;
     }
 
@@ -2284,6 +2280,13 @@ void InitListChecker::CheckStructUnionTypes(
     ++Field;
   }
 
+  auto DiagId = diag::warn_missing_field_initializers;
+  if (HasDesignatedInit) {
+    // Warnings about missing designated initializers are separate, since they
+    // historically did not produce this warning.
+    DiagId = diag::warn_missing_designated_field_initializers;
+  }
+
   // Emit warnings for missing struct field initializers.
   if (!VerifyOnly && InitializedSomething && CheckForMissingFields &&
       Field != FieldEnd && !Field->getType()->isIncompleteArrayType() &&
@@ -2293,8 +2296,7 @@ void InitListChecker::CheckStructUnionTypes(
     for (RecordDecl::field_iterator it = Field, end = RD->field_end();
          it != end; ++it) {
       if (!it->isUnnamedBitfield() && !it->hasInClassInitializer()) {
-        SemaRef.Diag(IList->getSourceRange().getEnd(),
-                     diag::warn_missing_field_initializers) << *it;
+        SemaRef.Diag(IList->getSourceRange().getEnd(), DiagId) << *it;
         break;
       }
     }
